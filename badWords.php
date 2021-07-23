@@ -2,6 +2,8 @@
 
 <?php
     $string = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, maxime rerum vel reiciendis eos earum in pariatur expedita asperiores quos perspiciatis nulla explicabo recusandae itaque dolorum voluptatibus ipsum facilis eveniet!";
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -18,13 +20,24 @@
 
     <p><strong>Lunghezza: </strong><?php echo strlen($string); ?></p>
 
-    <input type="text" id="word" placeholder="Inserisci la parola da censurare">
-    <button id="censura">Censura</button>
-
+    <form>
+        <input type="text" name="word" placeholder="Inserisci la parola da censurare">
+        <button type="submit">Censura</button>
+    </form>
+        
     <?php
-    $string = replace($_GET['word'], '***', $string)
-    ?>    
     
-    <script src="script.js"></script>
+        if (isset( $_GET['word'])) {
+            $string = str_replace($_GET['word'], '***', $string);
+            echo '<h2>Paragrafo modificato: </h2>
+                <p>' . $string .'</p>
+
+                <p><strong>Lunghezza: </strong>' . strlen($string) . '</p>';
+
+        }
+    
+    
+    ?>  
+    
 </body>
 </html>
