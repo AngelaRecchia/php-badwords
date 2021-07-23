@@ -15,5 +15,16 @@
 <body>
     <h2>Paragrafo: </h2>
     <p><?php echo $string; ?></p>
+
+    <p><strong>Lunghezza: </strong><?php echo strlen($string); ?></p>
+
+    <input type="text" id="word" placeholder="Inserisci la parola da censurare">
+    <button id="censura">Censura</button>
+
+    <?php
+    $string = replace($_GET['word'], '***', $string)
+    ?>    
+    
+    <script src="script.js"></script>
 </body>
 </html>
